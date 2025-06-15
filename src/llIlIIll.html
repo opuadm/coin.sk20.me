@@ -299,17 +299,19 @@
             }, 6000);
         }
 
-        // Start the ad madness
-        setInterval(createBannerAd, 3000);
-        setInterval(createPopup, () => 4000 + Math.random() * 4200);
-        setInterval(createNotification, 2200);
-        setInterval(createFloatingAd, 5000);
+        // Start the ad madness with proper intervals
+        setInterval(createBannerAd, 2000); // Every 2 seconds
+        setInterval(createPopup, 8000); // Every 8 seconds
+        setInterval(createNotification, 1500); // Every 1.5 seconds
+        setInterval(createFloatingAd, 4000); // Every 4 seconds
 
-        // Initial ads
-        setTimeout(createBannerAd, 500);
-        setTimeout(createPopup, 1000);
+        // Initial ads with staggered timing
+        setTimeout(createBannerAd, 300);
+        setTimeout(createPopup, 2000);
         setTimeout(createNotification, 100);
-        setTimeout(createFloatingAd, 2000);
+        setTimeout(createFloatingAd, 1500);
+        setTimeout(createBannerAd, 1000); // Additional early banner
+        setTimeout(createNotification, 800); // Additional early notification
     </script>
 </body>
 </html>
