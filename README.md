@@ -1,2 +1,1 @@
-# coin.sk20.me
-Remaster of announce-coin.netlify.app
+This repo is a remaster of announce-coin.netlify.app. Everything here is harmless.
