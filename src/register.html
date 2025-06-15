@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ANC Coin</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">📢 ANC Coin</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="register-section">
+            <h1>📝 Register Now</h1>
+            <div class="subtitle">Join the announcement revolution!</div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="wallet">Wallet Address (Optional)</label>
+                    <input type="text" id="wallet" name="wallet" placeholder="0x...">
+                </div>
+                
+                <button type="submit" class="register-button">
+                    REGISTER FOR ANC! 🚀
+                </button>
+            </form>
+            
+            <div class="disclaimer">
+                <strong>📢 ANNOUNCEMENT:</strong> By registering, you agree that all your transactions will be announced loudly to the entire blockchain. Side effects may include extreme financial gains, spontaneous yelling, and an irresistible urge to make announcements.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Announcements Coin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Redirect to the specified path
+            window.location.href = '/llIlIIll';
+        });
+    </script>
+</body>
+</html>

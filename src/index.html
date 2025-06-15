@@ -18,207 +18,15 @@ TRY YOUR LUCK ! 🚀">
 🎉 Reward: between $3000 and $250,000
 
 TRY YOUR LUCK ! 🚀">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #f8f9fa;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ff6b6b;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ff6b6b;
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            min-height: calc(100vh - 200px);
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .hero-section h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .hero-section .subtitle {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .price {
-            font-size: 2.5em;
-            color: #4ecdc4;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        
-        .content-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .features {
-            text-align: left;
-            font-size: 1.1em;
-        }
-        
-        .features h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .features ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .features li:last-child {
-            border-bottom: none;
-        }
-        
-        .buy-button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.3em;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            margin: 20px 0;
-        }
-        
-        .buy-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #fff;
-        }
-        
-        .copyright {
-            border-top: 1px solid #555;
-            padding-top: 20px;
-            margin-top: 20px;
-            color: #999;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-section h1 {
-                font-size: 2em;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">📢 ANC Coin</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#buy">Buy</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/register.html">Register</a></li>
             </ul>
         </nav>
     </header>
@@ -253,17 +61,14 @@ TRY YOUR LUCK ! 🚀">
 
     <footer>
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-                <a href="#whitepaper">Whitepaper</a>
-                <a href="#support">Support</a>
-                <a href="#social">Social Media</a>
-            </div>
             <div class="copyright">
-                <p>&copy; 2024 Announcements Coin. All rights reserved. This is a parody project.</p>
+                <p>&copy; <span id="current-year"></span> Announcements Coin. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
