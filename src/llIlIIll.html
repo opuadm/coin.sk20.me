@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Congratulations! You're a Winner!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-ad {
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(45deg, #ff0000, #ffff00);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 1000;
+            animation: blink 0.5s infinite;
+            cursor: pointer;
+        }
+
+        .banner-top { top: 0; }
+        .banner-bottom { bottom: 0; }
+        .banner-left { left: 0; top: 50%; transform: rotate(-90deg) translateX(-50%); width: 80px; height: 200px; }
+        .banner-right { right: 0; top: 50%; transform: rotate(90deg) translateX(50%); width: 80px; height: 200px; }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 3px solid #ff0000;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 2000;
+            max-width: 400px;
+            text-align: center;
+            animation: popupBounce 0.5s ease;
+        }
+
+        @keyframes popupBounce {
+            0% { transform: translate(-50%, -50%) scale(0); }
+            70% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .popup h2 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .popup button {
+            background: linear-gradient(45deg, #ff0000, #ff6600);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            animation: buttonPulse 1s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1500;
+            min-width: 300px;
+            animation: slideIn 0.5s ease, slideOut 0.5s ease 4s forwards;
+            margin-bottom: 10px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .floating-ad {
+            position: fixed;
+            background: yellow;
+            color: red;
+            padding: 10px;
+            border: 2px solid red;
+            border-radius: 10px;
+            font-weight: bold;
+            animation: float 3s ease-in-out infinite;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>🎉 CONGRATULATIONS! 🎉</h1>
+        <p>You have successfully registered for ANC Coin!</p>
+        <p>Your journey to financial freedom starts NOW!</p>
+    </div>
+
+    <script>
+        const bannerAds = [
+            "🎰 WIN $10,000 NOW! CLICK HERE! 🎰",
+            "💊 DOCTORS HATE THIS TRICK! LOSE 30LBS IN 1 WEEK! 💊",
+            "🏠 MAKE $5000/DAY FROM HOME! NO EXPERIENCE NEEDED! 🏠",
+            "📱 GET FREE iPHONE 15 PRO! LIMITED TIME OFFER! 📱",
+            "💰 CRYPTOCURRENCY MILLIONAIRE SECRETS REVEALED! 💰",
+            "🎮 PLAY THIS GAME FOR 1 MINUTE AND SEE WHY EVERYONE IS ADDICTED! 🎮",
+            "🔥 HOT SINGLES IN YOUR AREA WANT TO MEET YOU! 🔥",
+            "⚡ DOWNLOAD THIS APP AND GET $100 INSTANTLY! ⚡"
+        ];
+
+        const popupMessages = [
+            {
+                title: "🎉 WINNER WINNER!",
+                content: "You are our 1,000,000th visitor! Claim your $1000 Amazon gift card NOW!",
+                buttons: ["CLAIM NOW!", "No Thanks (MISTAKE!)"]
+            },
+            {
+                title: "⚠️ VIRUS DETECTED!",
+                content: "Your computer is infected with 47 viruses! Download our antivirus NOW!",
+                buttons: ["DOWNLOAD NOW", "Ignore (RISKY!)"]
+            },
+            {
+                title: "💰 CRYPTO ALERT!",
+                content: "Bitcoin will crash in 24 hours! Invest in SafeMoonDogeCoin NOW!",
+                buttons: ["INVEST $1000", "INVEST $5000", "INVEST EVERYTHING"]
+            },
+            {
+                title: "🚨 URGENT NOTICE!",
+                content: "Your warranty has expired! Renew now to avoid losing coverage!",
+                buttons: ["RENEW FOR $299", "Cancel (Bad Idea)"]
+            }
+        ];
+
+        const notifications = [
+            "💰 John just earned $2,847 in 3 minutes!",
+            "🎉 Sarah won a brand new Tesla Model S!",
+            "⚡ Mike gained 127 followers in 1 hour!",
+            "🏆 Emma just became a millionaire!",
+            "🔥 Alex discovered this one weird trick!",
+            "💎 Jessica found the secret to success!",
+            "🚀 David's investment just 10x'd!",
+            "🎯 Lisa hit the jackpot again!",
+            "💸 Robert earned $50,000 this morning!",
+            "🌟 Maria became an overnight sensation!",
+            "🎊 Chris just retired at age 25!"
+        ];
+
+        let notificationCount = 0;
+
+        function createBannerAd() {
+            const positions = ['banner-top', 'banner-bottom', 'banner-left', 'banner-right'];
+            const position = positions[Math.floor(Math.random() * positions.length)];
+            const message = bannerAds[Math.floor(Math.random() * bannerAds.length)];
+            
+            const banner = document.createElement('div');
+            banner.className = `banner-ad ${position}`;
+            banner.textContent = message;
+            banner.onclick = () => banner.remove();
+            
+            document.body.appendChild(banner);
+            
+            setTimeout(() => {
+                if (banner.parentNode) banner.remove();
+            }, 8000);
+        }
+
+        function createPopup() {
+            const popup = popupMessages[Math.floor(Math.random() * popupMessages.length)];
+            
+            const popupDiv = document.createElement('div');
+            popupDiv.className = 'popup';
+            
+            popupDiv.innerHTML = `
+                <h2>${popup.title}</h2>
+                <p>${popup.content}</p>
+                <div>
+                    ${popup.buttons.map(btn => `<button onclick="this.parentElement.parentElement.remove()">${btn}</button>`).join('')}
+                </div>
+            `;
+            
+            document.body.appendChild(popupDiv);
+            
+            setTimeout(() => {
+                if (popupDiv.parentNode) popupDiv.remove();
+            }, 10000);
+        }
+
+        function createNotification() {
+            const message = notifications[Math.floor(Math.random() * notifications.length)];
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.top = `${20 + (notificationCount * 70)}px`;
+            
+            notification.innerHTML = `
+                ${message}
+                <span class="close-btn" onclick="this.parentElement.remove(); adjustNotifications();">×</span>
+            `;
+            
+            document.body.appendChild(notification);
+            notificationCount++;
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                    notificationCount--;
+                    adjustNotifications();
+                }
+            }, 4500);
+        }
+
+        function adjustNotifications() {
+            const notifications = document.querySelectorAll('.notification');
+            notifications.forEach((notif, index) => {
+                notif.style.top = `${20 + (index * 70)}px`;
+            });
+            notificationCount = notifications.length;
+        }
+
+        function createFloatingAd() {
+            const floatingAd = document.createElement('div');
+            floatingAd.className = 'floating-ad';
+            floatingAd.textContent = '🎰 CLICK FOR FREE MONEY! 🎰';
+            floatingAd.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+            floatingAd.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+            floatingAd.onclick = () => floatingAd.remove();
+            
+            document.body.appendChild(floatingAd);
+            
+            setTimeout(() => {
+                if (floatingAd.parentNode) floatingAd.remove();
+            }, 6000);
+        }
+
+        // Start the ad madness
+        setInterval(createBannerAd, 3000);
+        setInterval(createPopup, () => 4000 + Math.random() * 4200);
+        setInterval(createNotification, 2200);
+        setInterval(createFloatingAd, 5000);
+
+        // Initial ads
+        setTimeout(createBannerAd, 500);
+        setTimeout(createPopup, 1000);
+        setTimeout(createNotification, 100);
+        setTimeout(createFloatingAd, 2000);
+    </script>
+</body>
+</html>
