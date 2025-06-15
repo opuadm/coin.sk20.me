@@ -19,43 +19,85 @@ TRY YOUR LUCK ! 🚀">
 
 TRY YOUR LUCK ! 🚀">
     <style>
-        body {
-            font-family: 'Comic Sans MS', cursive;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+        * {
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            line-height: 1.6;
+            color: #333;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .container {
-            max-width: 800px;
+        nav {
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
         
-        h1 {
-            font-size: 3em;
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
             color: #ff6b6b;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-section h1 {
+            font-size: 3em;
             margin-bottom: 10px;
         }
         
-        .subtitle {
-            font-size: 1.5em;
-            color: #555;
+        .hero-section .subtitle {
+            font-size: 1.3em;
             margin-bottom: 30px;
-            font-weight: bold;
+            opacity: 0.9;
         }
         
         .price {
@@ -65,70 +107,163 @@ TRY YOUR LUCK ! 🚀">
             margin: 20px 0;
         }
         
-        .features {
-            text-align: left;
-            margin: 30px 0;
-            font-size: 1.2em;
+        .content-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         
-        .warning {
-            background: #fff3cd;
-            border: 2px solid #ffeaa7;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 0.9em;
-            color: #856404;
+        .features {
+            text-align: left;
+            font-size: 1.1em;
+        }
+        
+        .features h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
         }
         
         .buy-button {
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
             padding: 15px 30px;
-            font-size: 1.5em;
+            font-size: 1.3em;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             cursor: pointer;
-            animation: pulse 2s infinite;
+            transition: transform 0.3s;
+            margin: 20px 0;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .buy-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📢 ANNOUNCEMENTS</h1>
-        <div class="subtitle">The World's First Announcement-Based Cryptocurrency!</div>
-        
-        <div class="price">1 ANC = $0.000001 🚀</div>
-        
-        <div class="features">
-            <h2>🎉 Revolutionary Features:</h2>
-            <ul>
-                <li>📣 Every transaction is literally just an announcement</li>
-                <li>🔊 Volume increases with CAPS LOCK usage</li>
-                <li>📈 Value goes up every time someone says "ANNOUNCEMENT"</li>
-                <li>🎪 Built on the cutting-edge "Proof of Yelling" consensus</li>
-                <li>🎭 Smart contracts that only execute when properly announced</li>
-                <li>🌙 Guaranteed to moon (terms and conditions apply)</li>
+    <header>
+        <nav>
+            <div class="logo">📢 ANC Coin</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>📢 ANNOUNCEMENTS</h1>
+            <div class="subtitle">The World's First Announcement-Based Cryptocurrency!</div>
+            <div class="price">1 ANC = $25 🚀</div>
+        </section>
+
+        <section class="content-section">
+            <div class="features">
+                <h2>🎉 Revolutionary Features:</h2>
+                <ul>
+                    <li>📣 Every transaction is literally just an announcement</li>
+                    <li>🔊 Volume increases with CAPS LOCK usage</li>
+                    <li>📈 Value goes up every time someone says "ANNOUNCEMENT"</li>
+                    <li>🎪 Built on the cutting-edge "Proof of Yelling" consensus</li>
+                    <li>🎭 Smart contracts that only execute when properly announced</li>
+                    <li>🌙 Guaranteed to moon (terms and conditions apply)</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="buy-button" onclick="alert('ANNOUNCEMENT: This button does nothing! 📢')">
+                    BUY NOW!!! 💰
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#whitepaper">Whitepaper</a>
+                <a href="#support">Support</a>
+                <a href="#social">Social Media</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Announcements Coin. All rights reserved. This is a parody project.</p>
+            </div>
         </div>
-        
-        <div class="warning">
-            ⚠️ <strong>IMPORTANT ANNOUNCEMENT:</strong> This is 100% satirical content. ANNOUNCEMENTS Coin is not a real cryptocurrency. Please do not invest your life savings in imaginary internet money based on announcements. We are not financial advisors, we just really like announcing things.
-        </div>
-        
-        <button class="buy-button" onclick="alert('ANNOUNCEMENT: This button does nothing! 📢')">
-            BUY NOW!!! 💰
-        </button>
-        
-        <p style="margin-top: 30px; font-size: 0.8em; color: #888;">
-            *Not actually available for purchase. Side effects may include excessive use of megaphone emojis and compulsive announcing of mundane activities.
-        </p>
-    </div>
+    </footer>
 </body>
-</html></p></div>
+</html>
